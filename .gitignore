@@ -1,0 +1,5 @@
+.vscode/
+.phpunit.result.cache
+test.php
+tempCodeRunnerFile.php
+vendor/

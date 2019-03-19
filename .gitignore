@@ -1,6 +1,5 @@
 .vscode/
 .phpunit.result.cache
-test.php
 tempCodeRunnerFile.php
 src/Yo/
 vendor/

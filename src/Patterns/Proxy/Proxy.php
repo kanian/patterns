@@ -1,15 +1,17 @@
 <?php
 namespace Assoa\Patterns\Proxy;
 
+use PhpParser\Node\Arg;
+use Assoa\Patterns\Pattern;
+use Assoa\Patterns\IPattern;
+use PhpParser\NodeTraverser;
+use InvalidArgumentException;
+use PhpParser\Node\Expr\Assign;
+use PhpParser\Node\Expr\Variable;
+use PhpParser\Node\Stmt\Expression;
+use PhpParser\Node\Stmt\ClassMethod;
 use Assoa\Parser\INodeVisitorFactory;
 use Assoa\Parser\ProxyNodeVisitorFactory;
-use Assoa\Patterns\IPattern;
-use Assoa\Patterns\Pattern;
-use InvalidArgumentException;
-use PhpParser\NodeTraverser;
-use PhpParser\Node\Expr\Assign;
-use PhpParser\Node\Stmt\ClassMethod;
-use PhpParser\Node\Stmt\Expression;
 
 class Proxy extends Pattern implements IPattern
 {

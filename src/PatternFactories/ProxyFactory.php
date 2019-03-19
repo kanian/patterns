@@ -16,9 +16,8 @@ class ProxyFactory extends PatternFactory
     public static function get(...$args)
     {
         $obj = $args[0];
-        $acceptFinal = $args[1];
         $proxyPattern = new Proxy(new ProxyNodeVisitorFactory());
-        $proxyPattern->patternize($obj, $acceptFinal);
+        $proxyPattern->patternize($obj);
         $proxyName = $proxyPattern->getPatternClassName();
         return new $proxyName;
     }

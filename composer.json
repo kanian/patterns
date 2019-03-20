@@ -1,8 +1,6 @@
 {
     "name": "kanian/patterns",
     "require": {
-        "phpunit/phpunit": "^8.0",
-        "roave/better-reflection": "^3.2",
         "nikic/php-parser": "^4.2"
     },
     "require-dev": {

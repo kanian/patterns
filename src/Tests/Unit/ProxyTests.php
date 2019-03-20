@@ -22,7 +22,7 @@ class ProxifyTests extends TestCase
     {
         $proxiedClassName = 'stdClass';
         $this->expectException(\InvalidArgumentException::class);
-        $proxy = ProxyFactory::get(stdClass::class, false);
+        $proxy = ProxyFactory::get(\stdClass::class, false);
         
     }
     public function testSubjectClassAstCorrect()

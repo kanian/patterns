@@ -7,6 +7,7 @@ use Assoa\Patterns\IPattern;
 use PhpParser\NodeTraverser;
 use InvalidArgumentException;
 use PhpParser\Node\Expr\Assign;
+use PhpParser\Node\Stmt\Return_;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Stmt\Expression;
 use PhpParser\Node\Stmt\ClassMethod;
@@ -92,7 +93,11 @@ class Proxy extends Pattern implements IPattern
             $name->name,
             array(new Arg(new Variable("args"), false, true))
         );
-        $methodAstBuilder = $methodAstBuilder->addStmt($methodCallNode);
+        //Call return 
+        $methodReturnNode = new Return_(
+            $methodCallNode
+        );
+        $methodAstBuilder = $methodAstBuilder->addStmt($methodReturnNode);
 
         $this->methodAsts[] = $methodAstBuilder;
         return $methodAstBuilder;

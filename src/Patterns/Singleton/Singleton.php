@@ -61,7 +61,11 @@ class Singleton extends Proxy implements IPattern
             $name->name,
             array(new Arg(new Variable("args"), false, true))
         );
-        $methodAstBuilder = $methodAstBuilder->addStmt($methodCallNode);
+        //Call return 
+        $methodReturnNode = new Return_(
+            $methodCallNode
+        );
+        $methodAstBuilder = $methodAstBuilder->addStmt($methodReturnNode);
 
         $this->methodAsts[] = $methodAstBuilder;
         return $methodAstBuilder;

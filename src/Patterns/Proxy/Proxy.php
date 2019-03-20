@@ -93,7 +93,7 @@ class Proxy extends Pattern implements IPattern
             $name->name,
             array(new Arg(new Variable("args"), false, true))
         );
-        //Call return 
+        //Call return node
         $methodReturnNode = new Return_(
             $methodCallNode
         );

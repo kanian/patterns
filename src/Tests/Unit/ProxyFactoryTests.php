@@ -16,7 +16,7 @@ class ProxyFactoryTest extends TestCase{
     }
     public function testProxyIsSubclassOfSubject()
     {
-        $proxy = ProxyFactory::get(new AClass, true);
+        $proxy = ProxyFactory::get(Aclass::class);
         $reflector = new \ReflectionClass(get_class($proxy));
         $this->assertTrue($reflector->isSubclassOf(Aclass::class));
     }

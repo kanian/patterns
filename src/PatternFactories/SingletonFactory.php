@@ -16,9 +16,9 @@ class SingletonFactory extends ProxyFactory
      */
     public static function get(...$args)
     {
-        $obj = $args[0];
+        $className = $args[0];
         $proxyPattern = new Singleton(new SingletonNodeVisitorFactory());
-        $proxyPattern->patternize($obj);
+        $proxyPattern->patternize($className);
         $proxyName = $proxyPattern->getPatternClassName();
         return $proxyName;
     }

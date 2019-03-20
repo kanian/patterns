@@ -22,13 +22,13 @@ class ProxifyTests extends TestCase
     {
         $proxiedClassName = 'stdClass';
         $this->expectException(\InvalidArgumentException::class);
-        $proxy = ProxyFactory::get(new \stdClass, false);
+        $proxy = ProxyFactory::get(stdClass::class, false);
         
     }
     public function testSubjectClassAstCorrect()
     {
         $proxyPattern = new Proxy(new ProxyNodeVisitorFactory());
-        $proxyPattern->patternize($this->objectMother->aClassInstance, true);
+        $proxyPattern->patternize(get_class($this->objectMother->aClassInstance));
         $subjectClassAst = $this->objectMother->getAClassAst();
         $this->assertEquals($subjectClassAst, $proxyPattern->getSubjectClassAst());
     }

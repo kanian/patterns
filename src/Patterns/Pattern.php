@@ -152,13 +152,14 @@ abstract class Pattern implements IPattern
      * @param mixed $obj
      * @return boolean
      */
-    protected function rejectIfNotUserClass($obj): bool
+    protected function rejectIfNotUserClass($className): bool
     {
-        $this->subjectClass = get_class($obj);
-        if (empty($this->subjectClass)) {
+        $this->subjectClass = $className;
+        if (!class_exists($this->subjectClass, false)) {
             return true;
         }
         $reflector = new ReflectionClass($this->subjectClass);
+
         if (!$reflector->isUserDefined()) {
             return true;
         }

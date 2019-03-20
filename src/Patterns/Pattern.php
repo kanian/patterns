@@ -155,9 +155,6 @@ abstract class Pattern implements IPattern
     protected function rejectIfNotUserClass($className): bool
     {
         $this->subjectClass = $className;
-        if (!class_exists($this->subjectClass, false)) {
-            return true;
-        }
         $reflector = new ReflectionClass($this->subjectClass);
 
         if (!$reflector->isUserDefined()) {

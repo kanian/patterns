@@ -46,12 +46,11 @@ abstract class Pattern implements IPattern
         $this->init(...$args);
     }
 
-    protected function init($subject, $acceptFinal = false)
+    protected function init($subject)
     {
         if ($this->rejectIfNotUserClass($subject)) {
             throw new InvalidArgumentException("$this->patternName only accepts user defined classes");
         }
-        $this->acceptFinal = $acceptFinal;
         $this->classReflector = new ReflectionClass($this->subjectClass);
         $this->factory = new BuilderFactory;
         $this->namespace = $this->classReflector->getNamespaceName();
